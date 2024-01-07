@@ -122,66 +122,32 @@
 
 
 <script>
-function ShowFullscreenAd() {
-  bridge.send('VKWebAppCheckNativeAds', { ad_format: 'interstitial' })
-    .then((data) => {
-      if (data.result) {
-        // Предзагруженная реклама есть.
-   
-        // Теперь можно создать кнопку
-        // "Прокачать героя за рекламу".   
-        // ...
-
-
-
-
-          bridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
-            .then((data) => {
-              if (data.result)
-                console.log('Реклама показана');
-                else
-                console.log('Ошибка при показе');
-              })
-              .catch((error) => { console.log(error); /* Ошибка */ });
-
-
-
-
-
-
-
-
-              
-        } else {
-          console.log('Рекламные материалы не найдены.');
-        }
-    })
-    .catch((error) => { console.log(error); /* Ошибка */  });
-
-
-  
-}
-
-
-function ShowAd() {
-
-bridge.send('VKWebAppCheckNativeAds', { ad_format: 'interstitial'});
-
-// ...  
-
-// Показать рекламу
-bridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
-  .then((data) => {
-    if (data.result)
-      console.log('Реклама показана');
-    else
-      console.log('Ошибка при показе');
+bridge.send('VKWebAppCheckNativeAds', {
+  ad_format: 'reward' /* Тип рекламы */ 
   })
-  .catch((error) => { console.log(error); /* Ошибка */ });
-
-}
+  .then((data) => { 
+    if (data.result) { 
+      // Предзагруженные материалы есть
+    } else {
+      // Материалов нет
+    }    
+  })
+  .catch((error) => { console.log(error); });
 </script>
 
+<script>
+bridge.send('VKWebAppShowNativeAds', {
+  ad_format: 'interstitial' /* Тип рекламы */
+  })
+  .then( (data) => { 
+    if (data.result) {
+      // Реклама была показана
+    } else {
+      // Ошибка
+    }
+  })
+  .catch((error) => { console.log(error); });
+</script>
 </head>
 <body>
 	<canvas id='canvas'>
@@ -206,7 +172,7 @@ bridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":744320,"index.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":744272,"index.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {
