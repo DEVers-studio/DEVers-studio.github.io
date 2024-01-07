@@ -119,6 +119,30 @@
 <script>
   vkBridge.send("VKWebAppInit", {});
 </script>
+
+<script>
+function ShowInterstitialAd(callback) {
+bridge.send('VKWebAppCheckNativeAds', { ad_format: 'interstitial' })
+  .then((data) => {
+    if (data.result) {
+      bridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
+  .then((data) => {
+    if (data.result)
+      console.log('Реклама показана');
+    else
+      console.log('Ошибка при показе');
+  })
+  .catch((error) => { console.log(error); /* Ошибка */ });
+            
+      } else {
+        console.log('Рекламные материалы не найдены.');
+      }
+  })
+  .catch((error) => { console.log(error); /* Ошибка */  });
+
+
+}
+</script>
 </head>
 <body>
 	<canvas id='canvas'>
@@ -143,7 +167,7 @@
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":743952,"index.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":744480,"index.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {
