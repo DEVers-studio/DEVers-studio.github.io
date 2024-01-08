@@ -115,42 +115,12 @@
 <link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
 <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script src="app.js"></script>
 
 <script>
-   import bridge from '@vkontakte/vk-bridge';
   vkBridge.send("VKWebAppInit", {});
-	bridge.send("VKWebAppInit", {});
 	
 	console.log("Test 1");
-</script>
-
-
-<script>
-bridge.send('VKWebAppCheckNativeAds', {
-  ad_format: 'reward' /* Тип рекламы */ 
-  })
-  .then((data) => { 
-    if (data.result) { 
-      // Предзагруженные материалы есть
-    } else {
-      // Материалов нет
-    }    
-  })
-  .catch((error) => { console.log(error); });
-</script>
-
-<script>
-bridge.send('VKWebAppShowNativeAds', {
-  ad_format: 'interstitial' /* Тип рекламы */
-  })
-  .then( (data) => { 
-    if (data.result) {
-      // Реклама была показана
-    } else {
-      // Ошибка
-    }
-  })
-  .catch((error) => { console.log(error); });
 </script>
 </head>
 <body>
@@ -176,7 +146,7 @@ bridge.send('VKWebAppShowNativeAds', {
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":744272,"index.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":744288,"index.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {
