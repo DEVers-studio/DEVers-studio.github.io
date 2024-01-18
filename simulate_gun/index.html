@@ -117,9 +117,6 @@
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
 <script>
-  vkBridge.send("VKWebAppInit", {});
-	function showFullscreenAd() {
-
 
 vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
   .then((data) => {
@@ -131,7 +128,7 @@ vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
   .catch((error) => { console.log(error); /* Ошибка */ });
 
 }
-	console.log("Test 6");
+	console.log("Test 7");
 </script>
 </head>
 <body>
