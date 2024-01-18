@@ -119,10 +119,22 @@
 <script>
   vkBridge.send("VKWebAppInit", {});
 	function showFullscreenAd() {
-	vkBridge.send('VKWebAppShowNativeAds',{ad_format:"interstial"}).then(data =>{
-		console.log(data);});
+
+
+vkBridge.send('VKWebAppShowNativeAds', {
+  ad_format: 'interstitial' /* Тип рекламы */
+  })
+  .then( (data) => { 
+    if (data.result) {
+      // Реклама была показана
+    } else {
+      // Ошибка
+    }
+  })
+  .catch((error) => { console.log(error); });
+
 }
-	console.log("Test 4");
+	console.log("Test 5");
 </script>
 </head>
 <body>
