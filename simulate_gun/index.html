@@ -116,20 +116,22 @@
 <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
+<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+
+<!-- Yandex.RTB R-A-5496992-1 -->
 <script>
-
-vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'interstitial' })
-  .then((data) => {
-    if (data.result)
-      console.log('Реклама показана');
-    else
-      console.log('Ошибка при показе');
-  })
-  .catch((error) => { console.log(error); /* Ошибка */ });
-
-
-	console.log("Test 7");
+window.yaContextCb.push(()=>{
+	Ya.Context.AdvManager.render({
+		"blockId": "R-A-5496992-1",
+		"type": "floorAd",
+		"platform": "desktop"
+	})
+})
 </script>
+
+
 </head>
 <body>
 	<canvas id='canvas'>
